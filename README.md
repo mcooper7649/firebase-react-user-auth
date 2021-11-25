@@ -95,3 +95,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 13. click the </> icon to create a webapp and acquire the firebase API keys
 14. Lets create .env.local file and add our api keys next
 15. add the REACT_APP_FIREBASE_API_KEY, then add the rest following that same format
+16. Next lets create firebase.js inside of src folder
+17. then install firebase npm i firebase
+18. import firebase from 'firebase/app'
+19. import 'firebase/auth'
+
+
+## Configuring our firebase.js file
+---
+
+1. Paste our api keys that we got from firebase into a const name app = firebase iniatlizeApp({})
+2. Next we need to replace the values with the process.env.REACT_APP_FIREBASE_API_KEY and do that for the rest
+
