@@ -106,4 +106,35 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 1. Paste our api keys that we got from firebase into a const name app = firebase iniatlizeApp({})
 2. Next we need to replace the values with the process.env.REACT_APP_FIREBASE_API_KEY and do that for the rest
+3. Next we can export app as default, this allows us to use firebase throughout our application
+4. We can also export the const auth = app.auth() to let us authenticate
 
+## Preparing our files and installing packages
+---
+
+1. npm i bootstrap react-bootstrap
+2. lets remove css and test files too and clean up our default directory next
+3. inside our index.js remove the service worker and other deleted code references
+4. Inside our App.js lets remove all the code inside the function and uneeded imports. return "hello world"
+5. lets create a components folder inside src next
+6. drag our app into that components folder
+7. if we do npm start now it should load up our page
+
+
+## Creating Signup.js component next
+---
+
+1. Inside components folder add Signup.js
+2. Install es7 react snippets if you dont have the extension inside vscode already installed
+3. type rfc inside your signup.js file and the extension should automatically generate a functionaly component
+4. Inside our function return a fragment
+5. Then a Card
+6. Inside our Card we will return a div
+7. w-100 text-center mt-2 will be the bootstrap classes
+8. Inside our Card we can add a Card.Body above our div
+9. Add an h2 with Sign up
+10. Add our Form next
+11. Form Group id = email
+12. Form Label  email is the text
+13. Form Control type = email, required, ref = {emailRef}
+14. Copy it and paste it twice so we can make password fields
