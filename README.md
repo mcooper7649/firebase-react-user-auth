@@ -68,3 +68,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# User Authentication with React and Firebase
+
+  
+  ## Web Dev Simplified
+  
+* [Link-To-Tutorial](https://www.youtube.com/watch?v=PKwu15ldZ7k)
+
+## Steps to Setup
+---
+
+1. npx create-react-app
+2. git init and first commit
+3. Prep your readme.md
+4. Go to firebase and create a new project
+5. Enter Authorization Development and remove Google Analytics Features
+6. enable sign in methods you want next
+7. email + password
+8. notice how authorized domains we have localhost as authorized. In production we will remove that.
+9. Lets create the authorization Production next and follow steps 5-8 again
+10. Remove localhost from Authorized domains
+11. Switch back to development
+12. Click on project overview from the left panel
+13. click the </> icon to create a webapp and acquire the firebase API keys
+14. Lets create .env.local file and add our api keys next
+15. add the REACT_APP_FIREBASE_API_KEY, then add the rest following that same format
