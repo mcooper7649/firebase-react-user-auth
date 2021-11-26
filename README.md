@@ -288,4 +288,62 @@ export function AuthProvider({ children }) {
 4. Now in our return we can add {!loading && children}
 5. now we can remove the currentUser check from Signup.js
 6. Don't forget to change the order of setCurrentUser on AuthContext.js
-7. 
+
+
+### Routing
+---
+
+1. Lets setup react-router next
+2. npm i react-router-dom
+3. lets go to app.js import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+4. Router will make the name easier to work with
+5. Switch will determine which page we are currently on
+6. Route will  determine which route on the page were going to
+
+### Lets route our Signup Page
+---
+
+1. From app.js page let remove the Signup component
+2. Then we can add Router Switch and Route
+3. Route with a "/signup" path and component={Signup}
+4. We can Wrap our Switch with our AuthProvider
+
+```
+function App() {
+  return (
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        <Router>
+          <AuthProvider>
+            <Routes>
+              <Route path="/signup" element={<Signup/>} />
+            </Routes>
+          </AuthProvider>
+        </Router>
+      </div>
+    </Container>
+  );
+}
+```
+
+
+*REACT UPDATE*
+
+1. In react-router-dom v6 Switch is repalced by routes "Routes"
+2. import { Switch } is now { Routes }
+3. component={Signup} is now element={<Signup/>} 
+
+
+
+### Setup Home Route
+---
+
+1. Lets copy our route for signup and past above, for our / route
+2. Lets replace 'signup' with '/'
+3. lets add exact so you have to specifically go to '/'
+4. Lets add the element {Dashboard} instead of Signup
+5. RFC to create the new component Dashboard in component folder
+6. 
