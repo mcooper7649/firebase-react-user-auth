@@ -346,4 +346,28 @@ function App() {
 3. lets add exact so you have to specifically go to '/'
 4. Lets add the element {Dashboard} instead of Signup
 5. RFC to create the new component Dashboard in component folder
-6. 
+6. put an h1 with just Dashbaord
+7. Lets load the page to make sure it works.
+8. Lets create the login route next
+9. Copy and paste the signup route
+10. rfc inside of components and create login component
+11. inside app.js import login
+12. copy and paste signup code into login component
+13. replace the function name with login instead of signup
+14. We can delete line 10 passwordConfirmRef as it won't be needed to login
+15. remove the if sttatement for password confirmation
+16. delete the final form group for pw confirmation too
+17. Change the button text from Sign Up to Login
+18. Change the h2 text to Log In
+19. update bottom div text to 'need an account?'
+20. Add Link To /signup page
+21. import Link on the login.js page too
+
+
+
+### Link to Login/Signup page
+---
+
+1. import { Link } from 'react-router-dom' on login page
+2. add <Link to="/signup">Sign-Up</Link> so create an internal link route to our signup page
+3. do steps 1 and 2 for login page
