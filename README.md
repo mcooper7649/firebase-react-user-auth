@@ -270,3 +270,22 @@ export function AuthProvider({ children }) {
 ``
 2. This will display errors on submission with the variant danger
 3. import it from react-bootstrap
+4. now if we try to signup with two different passwords we should get our error
+5. if we use the same pws we should get no error
+6. lets add currentUser to our signup useAuth
+7. we can put {currentUser} above our form
+8. thats a json object so if we wanted to see what was inide of it we can JSON.stringiy(currentUser)
+9. We will return our object with a propertie currentUser.email 
+10. so we can replace with {curreentUser.email}
+11. Also we want to only display when we have a currentUser so we can add {currentUser && curerntUser.email}
+
+### setloading
+---
+
+1. Inside our Authcontext we need to configure setLoading(false)
+2. This mean we have a user now and we are done loading
+3. in our AuthProvider we can set the loading state ``   const [loading, setLoading] = useState(true);``
+4. Now in our return we can add {!loading && children}
+5. now we can remove the currentUser check from Signup.js
+6. Don't forget to change the order of setCurrentUser on AuthContext.js
+7. 
