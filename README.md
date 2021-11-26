@@ -137,4 +137,109 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 11. Form Group id = email
 12. Form Label  email is the text
 13. Form Control type = email, required, ref = {emailRef}
-14. Copy it and paste it twice so we can make password fields
+14. Copy the form group and paste it twice so we can make password field and confirm password fields
+15. Then we can replace email with password and password confirm for our id, label, type and ref
+16. Lets add a Button with type submit "Sign Up" as the text
+17. lets add the class w-100 to make the width span the entire width of hte page
+18. Now we have the form created on our SigUP component we can export and add to our app.js
+19. We get errors says our Refs are defined. So lets do that on signup
+20. lets import our useRef hook from react
+21. declare const for each error and set to useRef();
+22. Our form should show now but we need to setup our bootstrap so our styles will show
+
+
+### Styling our Form
+---
+
+1. import ``import 'bootstrap/dist/css/bootstrap.min.css'
+`` in your index.js
+2. Lets add a container in our App.js to wrap our form
+```
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "400px" }}>
+        <Signup />
+      </div>
+    </Container>
+```
+
+### Adding Authorization
+---
+
+1. We want to add context because we want to access our user anywhere in our application
+2. create a  contexts folder inside our src folder
+3. create an AuthContext.js file inside
+4. rfc and create the function, but remove default
+5. rename the function to AuthProvider
+6. Now lets create a const AuthContext = React.createContext(); above our function
+7. Now we can use this context inside of our provider
+8. We can also take the prop object {children} in our AuthProvider and render inside the AuthContext.Provider
+
+```
+const AuthContext = React.createContext();
+
+export function AuthProvider({ children }) {
+    return (
+        <AuthContext.Provider>
+            {children}
+        </AuthContext.Provider>
+    )
+}
+```
+
+9. Next we can create the function useAuth and return useContext(AuthContext)
+10. lets add a value prop to our AuthProvider function next. 
+11. we have to create the const value = currentUser
+12. Inside our AuthProvider we can create a currentUse hook with useState
+13. ``  const [currentUser, setCurrentUser] = useState();``
+
+
+### Connecting Firebase
+---
+
+1. import import { auth } from "../firebase";
+2. lets createa  a signup function inside AuthProvider
+3. it will take email, password arguments
+4. it will ``return auth.createUserWithEmailAndPassword(email, password)
+``
+5. we can use auth.onAuthStateChanged(user){} to set our user
+6. But we only want to do this once, so we will use the useEffect hook
+7. make sure to add the [] so it will only run once
+
+```
+import React, { useContext, useState, useEffect } from "react";
+import { auth } from "../firebase";
+
+const AuthContext = React.createContext();
+
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+export function AuthProvider({ children }) {
+  const [currentUser, setCurrentUser] = useState();
+
+  function signup(email, password) {
+    return auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+  }, []);
+
+  const value = {
+    currentUser,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+```
+
+8. lets add const unsubscribe in front of our auth.onAuthStateChange in the useEffect hook. It will remove the listener which is exactly what we want
+9. now we can import useAuth into our signup.js component
+10. const { signup } = useAuth();
+11. Lets create a function handleSubmit() next for our submit handler
