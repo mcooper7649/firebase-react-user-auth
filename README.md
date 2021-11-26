@@ -243,3 +243,30 @@ export function AuthProvider({ children }) {
 9. now we can import useAuth into our signup.js component
 10. const { signup } = useAuth();
 11. Lets create a function handleSubmit() next for our submit handler
+12. we can add the e arguemnt and preventDefault method()
+13.  we can add the if ``if (passwordRef.current.value !== passwordConfirmRef.current.value){
+        return setError('Passwords do not match')
+    }``
+
+14. Then the try  and we can put our sign up inside the try
+15. Lets add async to the function as it will take time to grab this info
+16. add await to the signup call
+17. next we can add our catch block for any failures you may receive
+18. now we can use setError('Failed to create an account');
+19. Lets add a setError('') before our signup attempt to clear any errors
+20. lets also setLoading(true)
+21. after our catch we can then setLoading(false);
+22. now we need to create our state for loading so it can be used in our prevous code
+23. make the default loading state false
+24. now in our form we can tie our onSubmit of the form tag to {handeSubmit}
+25. In our button we can set the disable property = {loading} so it can't be submitted again while the form is loading.
+
+
+### Adding the Error Alerting
+---
+
+
+1. we can add ``{error && <Alert variant="danger">{error}</Alert>}
+``
+2. This will display errors on submission with the variant danger
+3. import it from react-bootstrap
