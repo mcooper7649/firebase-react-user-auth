@@ -371,3 +371,9 @@ function App() {
 1. import { Link } from 'react-router-dom' on login page
 2. add <Link to="/signup">Sign-Up</Link> so create an internal link route to our signup page
 3. do steps 1 and 2 for login page
+4. Now that we have our login pages confgured we can try to create an account
+5. and then login w/ that account if no error, success
+6. Lets use useHistory hook next on login.js
+7. now after our successful login we can put history.push('/')
+
+9. REACT UPDATE useHistory is deprecated. We use useNavigate now with navigate('/')
