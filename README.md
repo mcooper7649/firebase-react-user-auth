@@ -399,3 +399,29 @@ function App() {
 13. Lets add a <Link> next to /update-profile and className="btn- btn-primary w-100 mt-3
 14. link will have a text content of Update Profile
 15. import Link from react-router-dom, hit save and we should have a undapte profile button
+
+
+### Logout
+---
+
+1. if we want to logout we want to tap into useAuth(), lets add logout to our currentUser destructured functions const
+2. lets add the logout function to AuthContext so we can use it.
+3. lets create a new function called logout
+4. it doesn't need to be passed any arguments
+5. it will only have return auth.signOut();
+
+logout function in AuthContext.js
+```
+  function logout() {
+    return auth.signOut();
+  }
+```
+6. We need to add logut to the const value so we can render it out
+7. inside our Dashboard.js we can configurer our handleLogut() next
+8. first lets setError('') so it clears any previous errors
+9. add a try catch next
+10. inside our catch we can setError('failed to logout')m so we know exactly why we failed
+11. in our try, we can await logout()
+12. after our await logout we can use the navigate fucntion react-router-dom
+13. import it useNavigate and assisn a const navigate
+14. 
