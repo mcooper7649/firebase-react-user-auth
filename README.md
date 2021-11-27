@@ -377,3 +377,25 @@ function App() {
 7. now after our successful login we can put history.push('/')
 
 9. REACT UPDATE useHistory is deprecated. We use useNavigate now with navigate('/')
+10. once you update the deprecated useHistory to useNavigate if we test our login with a new account we will be directed to the dashboard
+
+
+### Setting up Dashboard
+---
+
+
+1. import { Card } from 'react-bootstrap'
+2. Lets add a fragment
+3. next well add a bootstrap card
+4. then we can grab our div from our login page and paste it after our card
+5. Update the div to have a Button to say Log out and add the variant style link
+6. Also add an onClick event "handleLogout"
+7. create the function handleLogout next we can leave it empty for now
+8. lets impoort Button, Alert from react-bootstrap and useState hook from react
+9. Lets copy the h2 and error checking from our login page paste into our dashboard Card.Body
+10. change the h2 text to say profile, create a error hook with useState;
+11. lets add ``<strong>Email: </strong>`` below our dashboard error checking
+12. lets import Authso we can tap into our user ``import { useAuth } from "../contexts/AuthContext";``
+13. Lets add a <Link> next to /update-profile and className="btn- btn-primary w-100 mt-3
+14. link will have a text content of Update Profile
+15. import Link from react-router-dom, hit save and we should have a undapte profile button
