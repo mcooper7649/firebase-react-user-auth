@@ -424,4 +424,32 @@ logout function in AuthContext.js
 11. in our try, we can await logout()
 12. after our await logout we can use the navigate fucntion react-router-dom
 13. import it useNavigate and assisn a const navigate
-14. 
+14. everything looks like it works but you will notice if your logged out you get an eror cannot read property null of email, and see the actual code of the page
+15. it mitigate this issue we need convert this route into a private route
+
+
+### Lets create a PrivateRoute
+---
+
+1. Lets create a new component called PrivateRoute.js
+2. rfc in the components folder.
+3. This file is going to be a wrapper
+4. we waant to pass an object into this function
+5. component: Component, ...rest
+6. import Route from react-router-dom
+7. replace our div tags with Route
+8. add { rest } to be passinto our Route
+9. add render ={props => }
+10. with a ternirary, for currentUser with the compoent and props if not redirect to login page
+
+```
+        <Route
+           {...rest}
+           render={props => {
+            currentUser ? <Component {... props} /> : <Redirect to="/login" />
+            }}>
+
+        </Route>
+```
+
+11. Now we can add a the PrivateRoute component to our App.js for the "/" route
